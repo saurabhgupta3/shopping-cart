@@ -1,1 +1,1 @@
-# Weclcome to Shopping Cart
+# Welcome to shopping cart
