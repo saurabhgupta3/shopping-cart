@@ -1,16 +1,30 @@
 import "./Card.css";
-import { Link } from "react-router-dom";
+import { useCart } from "./context/CartContext";
 
-export default function Card({image, title}) {
+export default function Card({ product }) {
+    const { addToCart } = useCart();
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.images[0]
+        });
+    };
+
     return (
         <div className="card">
-            <div className="image"><img src={image} alt="image" /></div>
+            <div className="image"><img src={product.images[0]} alt={product.title} /></div>
             <div className="title">
                 <div className="con">
-                    {title}
+                    {product.title}
+                </div>
+                <div className="price">
+                    ${product.price.toFixed(2)}
                 </div>
                 <div className="lin">
-                    <Link to={"/cart"} className="add">add to cart</Link>
+                    <button onClick={handleAddToCart} className="add">Add to Cart</button>
                 </div>
             </div>
         </div>
