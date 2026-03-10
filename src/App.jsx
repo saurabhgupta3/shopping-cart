@@ -6,7 +6,7 @@ import Shop from "./Shop";
 import Cart from "./Cart";
 import Card from "./Card";
 import { CartProvider } from "./context/CartContext";
-
+//hello
 export default function App() {
   return (
     <CartProvider>
